@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+  hadoop1:
+    image: navysummer/centos:7.8
+    container_name: hadoop1
+    hostname: hadoop1.com
+    networks:
+         bridge:
+            ipv4_address: 172.18.1.6
+    extra_hosts: 
+      - "hadoop1:172.18.1.6"
+      - "hadoop2:172.18.1.7"
+      - "hadoop3:172.18.1.8"
+    dns: 114.114.114.114
+  hadoop2:
+    image: navysummer/centos:7.8
+    container_name: hadoop2
+    hostname: hadoop2.com
+    networks:
+         bridge:
+            ipv4_address: 172.18.1.7
+    extra_hosts: 
+      - "hadoop1:172.18.1.6"
+      - "hadoop2:172.18.1.7"
+      - "hadoop3:172.18.1.8"
+    dns: 114.114.114.114
+  hadoop3:
+    image: navysummer/centos:7.8
+    container_name: hadoop3
+    hostname: hadoop3.com
+    networks:
+         bridge:
+            ipv4_address: 172.18.1.8
+    extra_hosts: 
+      - "hadoop1:172.18.1.6"
+      - "hadoop2:172.18.1.7"
+      - "hadoop3:172.18.1.8"
+    dns: 114.114.114.114
+
+# networks:
+#    mynet:
+#       ipam:
+#         driver: bridge
+#         config:
+#           - subnet: "172.18.1.1/16"
+#           - gateway: "172.18.1.1"
+
+networks:
+  bridge:
+    external:
+      name: mynet
