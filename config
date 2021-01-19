@@ -1,0 +1,15 @@
+#------------------------------config start----------------------------------------
+subnet="172.18.12.0/16"
+gateway="172.18.1.1"
+# docker network bridge unique
+netname="mynet"
+master_ip="172.18.12.1"
+master_name="master"
+slave1_ip="172.18.12.2"
+slave1_name="slave1"
+slave2_ip="172.18.12.3"
+slave2_name="slave2"
+dns="114.114.114.114"
+root_pass="root"
+#-----------------------------config end-------------------------------------------
+
